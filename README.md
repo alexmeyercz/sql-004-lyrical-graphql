@@ -31,3 +31,5 @@ Should get `Listinging` and then `Connected to Mongo Atlas instance.` and then a
 http://localhost:4000/ shoild show 'Lyrical' or whatever you named it.
 
 Interface will be there: http://localhost:4000/graphql
+
+Database is here: https://cloud.mongodb.com/v2/65dca8103001ae2c1b7df9ed#/metrics/replicaSet/65dca8463f3e6f61dd74b651/explorer/test/songs/find
