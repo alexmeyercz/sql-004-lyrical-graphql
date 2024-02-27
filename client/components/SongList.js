@@ -4,8 +4,6 @@ import { graphql } from 'react-apollo'
 import { Link } from 'react-router'
 import query from '../queries/fetchSongs'
 
-const f = '⇒ SongList.js:'
-
 class SongList extends Component {
   onSongDelete(id) {
     this.props
