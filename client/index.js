@@ -20,7 +20,7 @@ const Root = () => {
         >
           <IndexRoute component={SongList} />
           <Route
-            path='song/new'
+            path='/songs/new'
             component={SongCreate}
           />
         </Route>

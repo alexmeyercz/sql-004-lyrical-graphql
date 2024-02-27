@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { Link, hashHistory } from 'react-router'
 
 const f = '⇒ SongCreate.js (SongCreate):'
 class SongCreate extends Component {
@@ -14,11 +15,16 @@ class SongCreate extends Component {
     event.preventDefault()
     console.log(f, 'this.props →', this.props)
 
-    this.props.mutate({
-      variables: {
-        title: this.state.title,
-      },
-    })
+    this.props
+      .mutate({
+        variables: {
+          title: this.state.title,
+        },
+      })
+      .then(() => {
+        hashHistory.push('/')
+      })
+      .catch(() => {})
   }
 
   render() {
@@ -31,6 +37,7 @@ class SongCreate extends Component {
             onChange={(event) => this.setState({ title: event.target.value })}
             value={this.state.title}
           />
+          <button type='submit'>Submit</button>
         </form>
       </div>
     )
