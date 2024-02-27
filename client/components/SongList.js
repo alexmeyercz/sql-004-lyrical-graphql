@@ -4,24 +4,26 @@ import { graphql } from 'react-apollo'
 import { Link } from 'react-router'
 import query from '../queries/fetchSongs'
 
+const f = '⇒ SongList.js:'
+
 class SongList extends Component {
   onSongDelete(id) {
-    this.props.mutate({ variables: { id } }).then(() => {
-      this.props.data.refetch()
-    })
+    this.props
+      .mutate({ variables: { id } })
+      .then(() => this.props.data.refetch())
   }
 
   renderSongs() {
-    return this.props.data.songs.map((song) => {
+    return this.props.data.songs.map(({ id, title }) => {
       return (
         <li
-          key={song.id}
+          key={id}
           className='collection-item'
         >
-          {song.title}
+          <Link to={`/songs/${id}`}>{title}</Link>
           <i
             className='material-icons'
-            onClick={() => this.onSongDelete(song.id)}
+            onClick={() => this.onSongDelete(id)}
           >
             delete
           </i>
